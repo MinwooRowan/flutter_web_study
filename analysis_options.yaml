@@ -1,1 +1,34 @@
 include: package:flutter_lints/flutter.yaml
+analyzer:
+  plugins:
+    - custom_lint
+linter:
+  rules:
+    avoid_print: true
+    avoid_empty_else: true
+    empty_statements: true
+    # Switch문 중복되는 분기 warning
+    no_duplicate_case_values: true
+    # future아닌 곳에 await 막기
+    await_only_futures: true
+    camel_case_types: true
+    constant_identifier_names: true
+    curly_braces_in_flow_control_structures: true
+    # 예외처리에서 catch state 비어있거나 exception 처리 안해주는지 확인
+    empty_catches: true
+    empty_constructor_bodies: true
+    file_names: true
+    # 해당 brace안에서만 사용되는 indetifiers는 무조건 private으로 사용
+    no_leading_underscores_for_local_identifiers: true
+    # 식별자를 lowercamelcase로만
+    non_constant_identifier_names: true
+    prefer_conditional_assignment: true
+    # indexof 대신에  contains쓰도록 경고
+    prefer_contains: true
+    #=! null 등을  ?? operator로 바꿀 수 있도록
+    prefer_if_null_operators: true
+    # ().length ==1 대신에 isEmpty 사용하도록
+    prefer_is_empty: true
+    # new와 같이 불필요한 키워드 사용안하도록
+    unnecessary_constructor_name: true
+    prefer_single_quotes: true
