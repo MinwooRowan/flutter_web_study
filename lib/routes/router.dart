@@ -37,10 +37,20 @@ GoRouter router(Ref ref) {
             },
             routes: [
               GoRoute(
-                path: DetailScreen.route,
+                path: '/${HomeScreen.route}/${DetailScreen.route}:detailId',
                 name: DetailScreen.route,
                 builder: (context, state) {
-                  return const DetailScreen();
+                  final String? detailIdPathParam =
+                      state.pathParameters['detailId'];
+                  if (detailIdPathParam == null) {
+                    return const HomeScreen();
+                  }
+                  final int? detailId = int.tryParse(detailIdPathParam);
+
+                  if (detailId == null) {
+                    return const HomeScreen();
+                  }
+                  return DetailScreen(detailId: detailId);
                 },
                 routes: [],
               ),

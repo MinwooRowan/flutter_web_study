@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_web_study/environment/app_build.dart';
 import 'package:flutter_web_study/routes/router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-void main() {
+void main() async {
+  await AppBuild.init();
   runApp(ProviderScope(child: const MainApp()));
 }
 
